@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app="mhmApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<!--<title>MyHealthMath</title>-->
+	<!-- Bootstrap Add Set Base Path -->
+	<base href="/">
+	<!-- build:css css/app-name.min.css -->
+
+	
+	<!--
+		Created By : Aastha Jain
+		Created Date : 21-07-2016
+		Start : Libs for HTML Editor.
+	-->	
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300">
+	<!-- endbuild -->	
+	<style>
+    .ta-editor {
+        min-height: 150px;
+        height: auto;
+        overflow: auto;
+        font-family: inherit;
+        font-size: 100%;
+    }
+	
+	.ta-editor p {
+		height: 150px;
+	}
+    </style>
+	
+	<script type="text/javascript">
+		if (FileReader.prototype.readAsBinaryString === undefined) {
+			console.log('filereader')
+			FileReader.prototype.readAsBinaryString = function (fileData) {
+				var binary = "";
+				var pt = this;
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					var bytes = new Uint8Array(reader.result);
+					var length = bytes.byteLength;
+					for (var i = 0; i < length; i++) {
+						binary += String.fromCharCode(bytes[i]);
+					}
+					//pt.result  - readonly so assign content to another property
+					pt.content = binary;
+					$(pt).trigger('onload');
+				}
+				reader.readAsArrayBuffer(fileData);
+			}
+		}
+	</script>
+	
+	<!-- End : Libs for HTML Editor. -->
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+<body id="scroll-area_body">
+<div class="wrapper"> 
+	<div ng-if="pageLoading" class="welcome">
+	  <div class="w-cont">
+	  <div class="loading_dots"> <span></span> <span></span> <span></span> </div>
+	  <img src="images/welcome-logo.png" alt="logo" style="display: block;"> </div>
+	</div>	
+  <!-- tp header -->
+  <div ng-view></div>
+  <!-- /.footer --> 
+</div>
+<!--end wrapper-->
+	<!-- build:js js/app-name.min.js -->
+
+</body>
+<style>
+#footer {
+	position: absolute;
+	bottom: 0;
+	height: auto
+}
+</style>
+</html>
