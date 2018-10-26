@@ -13,9 +13,6 @@ angular.module('mhmApp.users')
                 }
 		}
 		
-		/**
-			Login User Services.
-		*/
 		service.Login = function (username, password, callback) {
 			var data={Email: username, Password: password};
 			var url = messages.serverLiveHost + messages.login;				
