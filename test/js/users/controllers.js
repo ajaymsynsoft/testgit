@@ -3,9 +3,7 @@
 	User Controller List all users.
 */
 angular.module('mhmApp.users')
-/**
-	Login Controller.
-*/
+
 .controller('LoginController',
     ['$scope', '$rootScope', '$location', 'UserService','checkCreds','businessServices','messages',
     function ($scope, $rootScope, $location, UserService,checkCreds,businessServices,messages) {
